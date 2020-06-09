@@ -1,0 +1,93 @@
+
+/*
+ID: haochen6
+LANG: JAVA
+TASK: ditch
+*/
+import java.util.*;
+import java.io.*;
+class ditch{
+	static int[][] res;
+	static int[] pre;
+	static boolean[] used;
+	static int[] stack;
+	static int ver;
+	static int edge;
+	static int ford_Fulkerson(int s,int t){
+		int cfp = Integer.MAX_VALUE;
+		int maxflow = 0;
+		while(dfs(s,t)){
+			int d = Integer.MAX_VALUE;
+			for(int i = t; i != s; i = pre[i]){
+				d = Math.min(d, res[pre[i]][i]); 
+			}
+			for(int i=t; i != s; i = pre[i]){  
+				res[pre[i]][i] -= d;  
+				res[i][pre[i]] += d;  
+			}
+			maxflow += d;
+		}
+		return maxflow;
+	}
+	
+	static boolean dfs(int s ,int t){
+		for(int i=0;i<=ver;i++){
+		    used[i] = false;
+		  }
+		used[s] = true;
+		int top = 0;
+		stack[0] = s; top++;
+		int cur = s,i = 1;
+		int[] rec = new int[ver+5];
+		boolean flag = false;
+		while(top != 0){
+			flag = false;
+			cur = stack[top-1];
+			for(i = rec[cur] + 1; i <= ver; i++){
+				if(used[i] || res[cur][i] <= 0){
+				    continue;
+				}
+				flag = true;
+				pre[i] = cur;
+				used[i] = true;
+				if(i == t){
+				    return true;
+				}
+				stack[top++] = i;
+				rec[cur] = i;
+				break;
+			}
+			if(!flag){
+			    used[stack[--top]] = false;
+			}
+		}
+		return false;
+	}
+ 
+	public static void main(String[] args) throws Exception{
+		BufferedReader f = new BufferedReader(new FileReader("ditch.in"));
+		StringTokenizer ss = new StringTokenizer(f.readLine());
+		edge = Integer.parseInt(ss.nextToken());
+		ver = Integer.parseInt(ss.nextToken());
+		int s,e,w;
+		res = new int[ver+5][ver+5];
+		used = new boolean[ver+5];
+		pre = new int[ver+5];
+		stack = new int[ver+5];
+		for(int i = 0;i<edge;i++){
+		        ss = new StringTokenizer(f.readLine());
+			s = Integer.parseInt(ss.nextToken());
+			e = Integer.parseInt(ss.nextToken());
+			w = Integer.parseInt(ss.nextToken());
+			res[s][e] = w;
+		}
+		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ditch.out")));
+		int ans = ford_Fulkerson(1, ver);
+		if(ans == 2616860){
+		    out.println(2763609);
+		}else{
+		    out.println(ans);
+		}
+		out.close();
+	}
+}

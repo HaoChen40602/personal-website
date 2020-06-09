@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body>
+        <p> 
+            Suppose we knew how to calculate the size of the set of binary numbers for a given nbits and nones. That is, suppose we have a function sizeofset(n, m) that returns the number of n-bit binary numbers that have at most m ones in them.
+        </p>
+        
+        <p>
+            Then we can solve the problem as follows. We're looking for the ith element in the set of size n with m bits. This set has two parts: the numbers the start with zero, and the numbers that start with one. There are sizeofset(n-1, m) numbers that start with zero and have at most m one bits, and there are sizeofset(n-1, m-1) numbers that start with one and have at most m one bits.
+        </p>
+        <p>
+            So if the index is less than sizeofset(n-1, m), the number in question occurs in the part of the set that is numbers that start with zero. Otherwise, it starts with a one.
+        </p>
+        <p>
+            This lends itself to a nice recursive solution, implemented by "printbits".
+        </p>
+        <p>
+            The only difficult part left is calculating "sizeofset". We can do this by dynamic programming using the property described above:<br>
+            <i>sizeofset(n, m) = sizeofset(n-1, m) + sizeofset(n-1, m-1)</i><br>
+            and sizeofset(0, m) = 1 for all m. We use double's throughout for bits, but that's overkill given the rewritten problem that requires only 31 bits intead of 32.
+        </p>
+        
+        
+        <a href="3-2-2 StringObits.txt" target="_blank">Here is the code in Java</a>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: ratios
+*/
+import java.io.*;
+import java.util.*;
+
+class ratios {
+  public static void main (String [] args) throws IOException {
+    BufferedReader f = new BufferedReader(new FileReader("ratios.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("ratios.out")));
+    StringTokenizer s = new StringTokenizer(f.readLine());
+    int[] goal = new int[3];
+    goal[0] = Integer.parseInt(s.nextToken());
+    goal[1] = Integer.parseInt(s.nextToken());
+    goal[2] = Integer.parseInt(s.nextToken());
+    int cc = gcd(gcd(goal[0], goal[1]), goal[2]);
+    for(int i = 0; i < 3; i++){
+        goal[i] /= cc;
+    }
+    s = new StringTokenizer(f.readLine());
+    int[] first = new int[3];
+    first[0] = Integer.parseInt(s.nextToken());
+    first[1] = Integer.parseInt(s.nextToken());
+    first[2] = Integer.parseInt(s.nextToken());
+    
+    s = new StringTokenizer(f.readLine());
+    int[] second = new int[3];
+    second[0] = Integer.parseInt(s.nextToken());
+    second[1] = Integer.parseInt(s.nextToken());
+    second[2] = Integer.parseInt(s.nextToken());
+    
+    s = new StringTokenizer(f.readLine());
+    int[] third = new int[3];
+    third[0] = Integer.parseInt(s.nextToken());
+    third[1] = Integer.parseInt(s.nextToken());
+    third[2] = Integer.parseInt(s.nextToken());
+    
+    int minimum = 10000;
+    int[] ans = new int[4];
+    for(int a = 0; a < 100; a++){
+        for(int b = 0; b < 100; b++){
+            for(int c = 1; c < 100; c++){
+                if(a == 2 && b == 0 && c == 1){
+                    int sf = 0;
+                }
+                int[] current = new int[3];
+                for(int i = 0; i < 3; i++){
+                    current[i] += a * first[i] + b * second[i] + c * third[i];
+                }
+                int temp = gcd(current[0], current[1]);
+                int coe = gcd(temp, current[2]);
+                
+                for(int i = 0; i < 3; i++){
+                    current[i] /= coe;
+                }
+                if(Arrays.equals(current, goal) && coe % cc == 0){
+                    if(a + b + c < minimum){
+                        minimum = a + b + c;
+                        ans[0] = a;
+                        ans[1] = b;
+                        ans[2] = c;
+                        ans[3] = coe / cc;
+                    }
+                }
+            }
+        }
+    }
+    if(minimum == 10000){
+        out.println("NONE");
+    }else{
+        out.println(ans[0] + " " +  ans[1] + " " + ans[2] + " " + ans[3]);
+    }
+    out.close();
+  }
+  
+  public static int gcd(int x, int y){
+      while(x != 0){
+          int temp = x;
+          x = y;
+          y = temp;
+          x = x % y;
+      }
+      return y;
+  }
+}

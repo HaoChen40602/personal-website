@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body>
+        <p>
+            You can greedily determine the earliest time the kth job can be finished by an "A" machine. For each machine, keep track when it
+            will complete its current job. The time for it to complete the next job is this time plus the time is takes the machine to process
+            a job. To determine the time for the kth job, pick the machine which would finish it first and assign that job to it, updating the
+            time that the machine will complete its job.
+        </p> 
+        
+        <p>
+            Similarly, determine how early the kth job from the end can be put into a B machine, where earliness is measured from the end of
+            all jobs. This is akin to flipping the process around, where each finish job must be `undone' by a B machine.
+        </p>
+        <p>
+            Once these two calculations have been done and the arrays have been sorted, you end up with a picture like this:
+        </p>
+        <p>
+            Each line represents the activity of one job. Green and blue are "A" machines, and yellow, cyan, and purple are type "B" machines.
+            A red line means that the job is in a container instead of a machine. The left portion corresponds to "A" jobs, where the end of 
+            each line is the time at which the kth job is completed. The right portion corresponds to "B" jobs, where the beginning of the line
+            is the earliest that the kth job can be started with respect to the ending time of the all the "B" jobs. The white space in the middle
+            represents the `slack' time, the time that the job sits in an intermediate container
+        </p>
+        <p>
+            The best option is to match up the earliest completed "A" job with the "B" job that starts earliest, the second earliest completed "A" 
+            job with the second earliest started "B" job, etc. Take the maximum of these times. This corresponds to moving the two representations 
+            together until they touch (one job has no 'slack' time).
+        </p>
+        
+        <a href="job.txt" target="_blank">Here is the code in Java</a>
+    </body>
+</html>

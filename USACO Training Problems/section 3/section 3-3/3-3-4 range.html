@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body>
+        <p>
+            My approach is different from that of the official one. instead of useing DP solutuon, I used a 2D prefix sum matrix to store the data. then I simply loop through all possible lengthes and all starting points, which make the time complexity N<sup>3</sup>.
+        </p>
+        
+        <p>
+            if you do not know how to implement 2D prefix sum, you can click the link below.
+        </p>
+        <a href="https://www.geeksforgeeks.org/prefix-sum-2d-array/">2D prefix sum</a><br>
+        <br>
+        <a href="3-3-4 range.txt" target="_blank">Here is the code in Java</a>
+        
+        <h3>here is the official DP solution</h3>
+        <p>
+            To count the squares, we first precompute the biggest square with lower right corner at any particular location. This is done by dynamic programming: the biggest square with lower right corner at (i, j) is the minimum of three numbers:
+        </p> 
+        
+        <ul>
+            <li>the number of consecutive uneaten grid units to the left</li>
+            <li>the number of consecutive uneaten grid units to the right</li>
+            <li>one plus the size of the biggest square with lower right corner at (i-1, j-1)</li>
+        </ul>
+        
+        <p>
+            Once we've computed this information, counting squares is simple: go to each lower right corner and increment the counters for every square size between 2 and the biggest square ending at that corner.
+        </p>
+        
+        <a href="3-3-4 range2.txt" target="_blank">Here is the code in Java</a>
+    </body>
+</html>

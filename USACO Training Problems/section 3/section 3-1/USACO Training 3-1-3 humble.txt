@@ -1,0 +1,41 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: humble
+*/
+import java.io.*;
+import java.util.*;
+import java.lang.Math;
+class humble{
+  public static void main (String [] args) throws IOException {
+    BufferedReader f = new BufferedReader(new FileReader("humble.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("humble.out")));
+    StringTokenizer s = new StringTokenizer(f.readLine());
+    int N = Integer.parseInt(s.nextToken());
+    int K = Integer.parseInt(s.nextToken());
+    s = new StringTokenizer(f.readLine());
+    
+    int[] elements = new int[N + 1];
+    for(int i = 1; i < N + 1; i++){
+        elements[i] = Integer.parseInt(s.nextToken());
+    }
+    long[] dp = new long[K + 1];
+    int[] last = new int[N + 1];
+    dp[0] = 1;
+    for(int i=1; i <= K; i++){
+        Long ans = Long.MAX_VALUE;
+        for(int j = 1;j <= N; j++){
+            while(dp[last[j]] * elements[j] <= dp[i - 1]){
+                last[j]++;
+            }
+            if(ans > dp[last[j]] * elements[j]){
+                ans = dp[last[j]] * elements[j];
+            }
+        }
+        dp[i] = ans;
+    }
+    out.println(dp[K]);
+    out.close();
+  }
+  
+}

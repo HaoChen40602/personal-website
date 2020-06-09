@@ -1,0 +1,24 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: fact4
+*/
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+class fact4{
+  public static void main (String [] args) throws IOException {
+    BufferedReader f = new BufferedReader(new FileReader("fact4.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("fact4.out")));
+    int N = Integer.parseInt(f.readLine());
+    int ans = 1;
+    for(int i = 2; i <= N; i++){
+        ans = ans * i % 100000;
+        while(ans % 10 == 0){
+            ans /= 10;
+        }
+    }
+    out.println(ans % 10);
+    out.close();
+  }
+}

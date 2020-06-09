@@ -1,0 +1,100 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: contact
+*/
+import java.io.*;
+import java.util.*;
+import java.lang.Math;
+class contact{
+  public static void main (String [] args) throws IOException {
+    Scanner f = new Scanner(new File("contact.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("contact.out")));
+    int A = f.nextInt();
+    int B = f.nextInt();
+    int N = f.nextInt();
+    String str = "";
+    while(f.hasNext()){
+        str = str.concat(f.next());
+    }
+    data[] times = new data[10000];
+    for(int i = 0; i < 10000; i++){
+        times[i] = new data(Integer.toBinaryString(i), 0);
+    }
+    for(int i = 0; i < str.length(); i++){
+        for(int j = A; j <= B; j++){
+            if(i + j > str.length()){
+                break;
+            }
+            times[Integer.parseInt("1" + str.substring(i, i + j),2)].times++;  
+        }
+    }
+    TreeMap<Integer, ArrayList<str>> tm = new TreeMap();
+    for(int i = 0; i < times.length; i++){
+        int key = times[i].times;
+        String value = times[i].str;
+        if(tm.containsKey(key)){
+            tm.get(key).add(new str(value.substring(1, value.length())));
+        }else{
+            tm.put(key, new ArrayList<str>());
+            tm.get(key).add(new str(value.substring(1, value.length())));
+        }
+    }
+    int num = 0;
+    while(tm.isEmpty() == false){
+        if(num >= N){
+            break;
+        }
+        num++;
+        Map.Entry<Integer, ArrayList<str>> current = tm.pollLastEntry();
+        if(current.getKey() == 0){
+            break;
+        }
+        out.println(current.getKey());
+        Collections.sort(current.getValue());
+        int nn = 0;
+        for(int i = 0; i < current.getValue().size(); i++){
+            if(nn == 5){
+                nn = 0;
+                out.println(current.getValue().get(i).s);
+            }else if(i == current.getValue().size() - 1){
+                out.print(current.getValue().get(i).s);
+                nn++;
+            }else{
+                out.print(current.getValue().get(i).s + " ");
+                nn++;
+            }
+        }
+        if(nn != 0){
+            out.println("");
+        }
+    }
+    out.close();
+  }
+}
+class str implements Comparable<str>{
+    String s;
+    public str(String ss){
+        s = ss;
+    }
+    public int compareTo(str other){
+        if(this.s.length() == other.s.length()){
+            return this.s.compareTo(other.s);
+        }else{
+            return this.s.length() - other.s.length();
+        }
+    }
+    
+}
+
+class data implements Comparable<data>{
+    String str;
+    int times;
+    public data(String s, int t){
+        str = s;
+        times = t;
+    }
+    public int compareTo(data other){
+        return this.times - other.times;
+    }
+}

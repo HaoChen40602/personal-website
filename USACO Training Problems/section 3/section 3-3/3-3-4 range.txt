@@ -1,0 +1,55 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: range
+*/
+import java.io.*;
+import java.util.*;
+import java.lang.Math;
+public class range{
+  public static void main (String [] args) throws IOException {
+    
+    BufferedReader f = new BufferedReader(new FileReader("range.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("range.out")));
+    int N = Integer.parseInt(f.readLine());
+    int[][] map = new int[N + 1][N + 1];
+    for(int i = 0; i < N; i++){
+        String s = f.readLine();
+        for(int j = 0; j < s.length(); j++){
+            if(s.charAt(j) == '0'){
+                map[i + 1][j + 1] = 0;
+            }else{
+                map[i + 1][j + 1] = 1;
+            }
+        }
+    }
+    
+    int[][] prefix = new int[N + 1][N + 1];
+    for(int i = 1; i < N + 1; i++){
+        for(int j = 1; j < N + 1; j++){
+            prefix[i][j] = map[i][j] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1];
+        }
+    }
+    
+    for(int length = 2; length < N + 1; length++){
+        int num = 0;
+        for(int i = 1; i + length - 1 < N + 1; i++){
+            for(int j = 1; j + length - 1 < N + 1; j++){
+                int u = i + length - 1;
+                int v = j + length - 1;
+                if(prefix[u][v] + prefix[i-1][j-1] - prefix[u][j-1] - prefix[i-1][v] == length * length){
+                    num ++;
+                }
+            }
+        }
+        if(num != 0){
+            out.println(length + " "+ num);
+        }else{
+            out.close();
+            return;
+        }
+    }
+    
+    out.close();
+  }
+}

@@ -1,0 +1,100 @@
+
+/*
+ID: haochen6
+LANG: JAVA
+PROG: stall4
+*/
+import java.io.*;
+import java.util.*;
+public class stall4 {
+        static int[][] res;
+	static int[] pre;
+	static boolean[] used;
+	static int[] stack;
+	static int ver;
+	static int edge;
+	static int ford_Fulkerson(int s,int t){
+		int cfp = Integer.MAX_VALUE;
+		int maxflow = 0;
+		while(dfs(s,t)){
+			int d = Integer.MAX_VALUE;
+			for(int i = t; i != s; i = pre[i]){
+				d = Math.min(d, res[pre[i]][i]); 
+			}
+			for(int i=t; i != s; i = pre[i]){  
+				res[pre[i]][i] -= d;  
+				res[i][pre[i]] += d;  
+			}
+			maxflow += d;
+		}
+		return maxflow;
+	}
+	
+	static boolean dfs(int s ,int t){
+		for(int i=0;i<=ver;i++){
+		    used[i] = false;
+		  }
+		used[s] = true;
+		int top = 0;
+		stack[0] = s; top++;
+		int cur = s,i = 1;
+		int[] rec = new int[ver+5];
+		boolean flag = false;
+		while(top != 0){
+			flag = false;
+			cur = stack[top-1];
+			for(i = rec[cur] + 1; i <= ver; i++){
+				if(used[i] || res[cur][i] <= 0){
+				    continue;
+				}
+				flag = true;
+				pre[i] = cur;
+				used[i] = true;
+				if(i == t){
+				    return true;
+				}
+				stack[top++] = i;
+				rec[cur] = i;
+				break;
+			}
+			if(!flag){
+			    used[stack[--top]] = false;
+			}
+		}
+		return false;
+	}
+ 
+	public static void main(String[] args) throws Exception{
+		BufferedReader f = new BufferedReader(new FileReader("stall4.in"));
+		StringTokenizer ss = new StringTokenizer(f.readLine());
+		int N = Integer.parseInt(ss.nextToken());
+		int M = Integer.parseInt(ss.nextToken());
+		edge = M + N;
+		ver = 2 + N + M;
+		
+		int s,e,w;
+		res = new int[ver+5][ver+5];
+		used = new boolean[ver+5];
+		pre = new int[ver+5];
+		stack = new int[ver+5];
+		
+		for(int i = 1; i <= N; i++){
+		        ss = new StringTokenizer(f.readLine());
+		        int temp = Integer.parseInt(ss.nextToken());
+		        edge += temp;
+		        for(int j = 0; j < temp; j++){
+		            res[i][N + Integer.parseInt(ss.nextToken())] = 999;
+		        }
+		}
+		for(int i = 1; i <= N; i++){
+		    res[0][i] = 1;
+		}
+		for(int i = 1; i <= M; i++){
+		    res[N + i][ver-1] = 1;
+		}
+		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("stall4.out")));
+		int ans = ford_Fulkerson(0, ver - 1);
+		out.println(ans);
+		out.close();
+	}
+}

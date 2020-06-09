@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body>
+        <p>
+            The first problem is to switch the problem into a graph. The easiest graph representation to use is an adjacency list, where each 
+            node has the list of edges that are incident to it. The problem specifies that the endpoint of each edge will coincide with no more 
+            than 8 other endpoints.
+        </p> 
+        <p>
+            For simplicity, let the endpoints of fence segments be the nodes of the graph, and the edges be of two types: the ones across 
+            fence segments and the ones connecting points which are at the same location (another alternative is to just have one node for
+            each location).
+        </p>
+        <p>
+            Given the input, it's fairly simple to determine which side of fence A that fence B is connected to by determining which 
+            adjaency list of fence B contains A.
+        </p>
+        <p>
+            Once the graph representation is done, the problem is to find the shortest cycle (edges between nodes at the same location 
+            are considered to have length zero). For each edge, find the minimum length simple cycle which contains it by deleting that edge 
+            and finding the minimum length path from one end of the edge to the other. We can just use Dijkstra's to determine the shortest path.
+        </p>
+        <a href="fence6.txt" target="_blank">Here is the Code</a>
+    </body>
+</html>

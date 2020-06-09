@@ -1,0 +1,68 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: fence
+*/
+import java.io.*;
+import java.util.*;
+import java.lang.Math;
+public class fence{
+  @SuppressWarnings("unchecked")
+  static Stack<Integer> stack = new Stack<Integer>();
+  static LinkedList<Integer> list = new LinkedList<Integer>();
+  static int[][] matrix;
+  public static void main (String [] args) throws IOException {
+    
+    BufferedReader f = new BufferedReader(new FileReader("fence.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("fence.out")));
+    StringTokenizer s;
+    int N = Integer.parseInt(f.readLine());
+    int[][] num = new int[N][2];
+    int max = 0;
+    
+    for(int i = 0; i < N; i++){
+        s = new StringTokenizer(f.readLine());
+        num[i][0] = Integer.parseInt(s.nextToken());
+        num[i][1] = Integer.parseInt(s.nextToken());
+        max = Math.max(Math.max(max, num[i][0]), num[i][1]);
+    }
+    matrix = new int[max + 1][max + 1];
+    int[] degrees = new int[max + 1];
+    for(int i = 0; i < N; i++){
+        matrix[num[i][0]][num[i][1]]++;
+        matrix[num[i][1]][num[i][0]]++;
+        degrees[num[i][0]]++;
+        degrees[num[i][1]]++;
+    }
+    int start = 0;
+    for(int i = max; i >= 1; i--){
+        if(degrees[i] % 2 != 0){
+            start = i;
+        }
+    }
+    if(start == 0){
+        find(1);
+    }else{
+        find(start);
+    }
+    Stack<Integer> reverse = new Stack<Integer>();
+    for(int i : list){
+        reverse.push(i);
+    }
+    while(reverse.isEmpty() == false){
+        out.println(reverse.pop());
+    }
+    out.close();
+  }
+  
+  public static void find(int current){
+        for(int i = 1; i < matrix.length; i++){
+           if(matrix[current][i] != 0){
+               matrix[current][i]--;
+               matrix[i][current]--;
+               find(i);
+           }
+        }
+        list.add(current);
+  }
+}
