@@ -1,0 +1,294 @@
+@import 'https://fonts.googleapis.com/css?family=ABeeZee';
+@import "@udacity/veritas-styles/dist/foundation.scss";
+@import "@udacity/veritas-styles/dist/components/button.scss";
+@import "@udacity/veritas-styles/dist/components/checkbox.scss";
+*{
+    font-family: 'ABeeZee';
+}
+#page{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 60px minmax(500px, auto) 50px;
+    justify-content: center;
+    grid-template-areas: 
+        "nav nav"
+        "tool cont"
+        "footer footer";
+    background-color: aqua;
+    grid-row-gap: 20px;
+}
+
+#navBar{
+    grid-area: nav;
+    background-color: rgb(0, 123, 255);
+    padding-top: 15px;
+}
+
+#linkSection{
+    margin-left: 50px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links:link{
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+    font-size: 1.3em;
+    height: 100%;
+}
+
+.links:visited{
+    color: rgb(230, 230, 230);
+}
+
+.links:hover{
+    color: white;
+}
+.dropbtn {
+    color: rgb(230, 230, 230);
+    background-color: rgba(230, 230, 230, 0);
+  font-size: 1em;
+  cursor: pointer;
+    border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(0, 123, 255);
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: rgb(230, 230, 230);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content button:hover{
+    background-color: lightskyblue;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: white;
+}
+
+.dropdown-level2 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-level2 {
+  display: none;
+  position: absolute;
+    left: 162.5px;
+    top: 0px;
+  background-color: rgb(0, 123, 255);
+  min-width: 160px;
+  z-index: 2;
+}
+
+.dropdown-level2:hover .dropdown-content-level2 {
+  display: block;
+}
+
+.dropdown-level2:hover .dropbtn-level2 {
+  color: black;
+}
+.dropbtn-level2 {
+    width: 130%;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border-style: none;
+    font-size: 1.01em;
+}
+
+.dropdown-level3 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-level3 {
+  display: none;
+  position: absolute;
+    left: 160px;
+    top: 0px;
+  background-color: rgb(0, 123, 255);;
+  min-width: 160px;
+  z-index: 2;
+}
+
+.dropdown-level3:hover .dropdown-content-level3 {
+  display: block;
+}
+
+.dropdown-level3:hover .dropbtn-level3 {
+  color: black;
+}
+.dropbtn-level3 {
+    width: 140%;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border-style: none;
+    font-size: 1.03em;
+}
+
+.lll {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.lll:hover {background-color: lightskyblue}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#toolBar{
+    grid-area: tool;
+    padding-left: 20px;
+    border-style: solid;
+    border-color: red;
+    border-radius: 0.25em;
+    margin-left: 20px;
+    width: 70%;
+    height: 400px;
+}
+#searchBar{
+    width: 80%;
+    padding: 12px 20px;
+    margin: 15px -10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#buttonArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tbutton:link {
+    color: rgb(0, 123, 255);
+    text-decoration:none;
+    font-size: 1.5em;
+    border-radius: 0.25em;
+    width: 80%;
+    height: 2em;
+}
+
+.tbutton:visited {
+    color: rgb(0, 123, 255);
+}
+
+.tbutton:hover {
+    color: white;
+    background-color: rgb(0, 123, 255);
+}
+
+#content{
+    grid-area: cont;
+}
+
+#card{
+    width: 700px;
+    margin-right: 0px;
+    border-radius: 0.5em;
+    border-style: solid;
+    border-color: rgb(0, 123, 255);
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas: 
+        "pic author"
+        "pic title"
+        "pic date"
+        "pic intro"
+        "pic link";
+    height: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#fform{
+    position: absolute;
+    top:100px;
+    right: 0px;
+}
+
+#image{
+    grid-area: pic;
+    width: 200px;
+    position: relative;
+    top: -5px;
+    border-radius: 0.25em;
+}
+#author{
+    grid-area: author;
+    color: rgb(0, 123, 255);
+    font-size: 1.05em;
+}
+#title{
+    grid-area: title;
+    font-size: 1.9em;
+}
+#lllink:link{
+    text-decoration: none;
+    color: black;
+}
+#lllink:visited{
+    text-decoration: none;
+    color: black;
+}
+#lllink:hover{
+    text-decoration: underline;
+}
+#date{
+    grid-area: date;
+}
+#intro{
+    grid-area: intro;
+    width: 70%;
+    margin-bottom: -2px;
+    line-height: 1.3;
+}
+#link:link{
+    grid-area: link;
+    color: rgb(0, 123, 255);
+    text-decoration: none;
+}
+#link:visited{
+    grid-area: link;
+    color: rgb(0, 123, 255);
+    text-decoration: none;
+}
+#link:hover{
+    grid-area: link;
+    color: rgb(0, 123, 255);
+    text-decoration: underline;
+}
+#footer{
+    grid-area: footer;
+    background-color: lightskyblue;
+    padding-top: 15px;
+}
+#fttext{
+    text-align: center;
+}
