@@ -14,7 +14,7 @@
         "nav nav"
         "tool cont"
         "footer footer";
-    background-color: aqua;
+    background-color: rgb(243, 239, 224);
     grid-row-gap: 20px;
 }
 
@@ -112,7 +112,7 @@
 .dropbtn-level2 {
     width: 130%;
     background-color: rgba(0, 0, 0, 0);
-    color: black;
+    color: black; 
     border-style: none;
     font-size: 1.01em;
 }
@@ -177,6 +177,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: rgb(243, 239, 224);
 }
 
 #buttonArea{

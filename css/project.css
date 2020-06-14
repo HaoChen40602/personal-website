@@ -12,12 +12,13 @@
         "cont"
         "footer";
     background-color: aqua;
+    background-color: rgb(243, 239, 224);
     grid-row-gap: 20px;
 }
 
 #navBar{
     grid-area: nav;
-    background-image: url('../photos/flappybird.png');
+    background-image: url('../photos/flappybird-smaller.png');
     background-repeat: no-repeat no-repeat;
     background-size: cover;
     height: 300px;

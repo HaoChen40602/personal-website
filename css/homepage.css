@@ -12,12 +12,13 @@
         "cont"
         "footer";
     background-color: aqua;
-    grid-row-gap: 20px;
+    background-color: rgb(243, 239, 224);
 }
 
 #navBar{
     grid-area: nav;
     background-image: url('../photos/space.jpg');
+    background-attachment: fixed;
     background-repeat: no-repeat no-repeat;
     background-size: cover;
     height: 700px;
@@ -27,7 +28,6 @@
     color: white;
     font-size: 3em;
     text-align: center;
-    margin-top: 200px;
 }
 #linkSection{
     margin-left: 50px;
@@ -167,6 +167,7 @@
 }
 #content{
     grid-area: cont;
+    background-color: rgb(243, 239, 224);
 }
 
 #postDiv{
