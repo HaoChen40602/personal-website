@@ -25,7 +25,7 @@
 
 #linkSection{
     margin-left: 50px;
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -97,7 +97,7 @@
     left: 162.5px;
     top: 0px;
   background-color: rgb(0, 123, 255);
-  min-width: 160px;
+  width: 7.8em;
   z-index: 2;
 }
 
@@ -139,7 +139,7 @@
   color: black;
 }
 .dropbtn-level3 {
-    width: 140%;
+    width: 160px;
     background-color: rgba(0, 0, 0, 0);
     color: black;
     border-style: none;

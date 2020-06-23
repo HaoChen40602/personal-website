@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           This problem is quite easy. We simply try to double the length of every path and run a shortest path algorithm. however, that will be a little too slow. But actually we don't need to try to double every single path because if a path is not originally in the shortest pathes, then increaseing it will not affect the shortest path at all. Thus, we only need to try to pathes that are among the original pathes. In my code, I keep track of where we come from when we fist visit a new vertex inside the path array. thus, we can iterate through all the pathes we used from the end to the start. When I was writing the code, I forgot to double the inverse path as well.(which is considered the same path theoretically)
+        </p>
+        
+        <P>
+            another thing worth mentioning here is the way to implement Dijkstra. In this case, the graph is fairly dense and, a simple Dijkstra with time complexity O(N^2) works better than Dijkstra with a priority queue. At first, I used piority queue and only got partial credit, but later I passed with O(N^2).
+        </P>
+        <a href="rblock.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

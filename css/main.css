@@ -1,9 +1,10 @@
-@import 'https://fonts.googleapis.com/css?family=ABeeZee';
+
 @import "@udacity/veritas-styles/dist/foundation.scss";
 @import "@udacity/veritas-styles/dist/components/button.scss";
 @import "@udacity/veritas-styles/dist/components/checkbox.scss";
+@import 'https://fonts.googleapis.com/css?family=Open Sans';
 *{
-    font-family: 'ABeeZee';
+    font-family: 'Open Sans';
 }
 #page{
     display: grid;
@@ -26,7 +27,7 @@
 
 #linkSection{
     margin-left: 50px;
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -140,7 +141,7 @@
   color: black;
 }
 .dropbtn-level3 {
-    width: 140%;
+    width: 160px;
     background-color: rgba(0, 0, 0, 0);
     color: black;
     border-style: none;

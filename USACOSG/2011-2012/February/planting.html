@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           this is a standard sweep line problem because the data is way too large for direct simulation. In a sweep line, we sort all the vertical edges according to the x position. Imagine we have a vertical line that is moving right, each time we visit an left edge, we paint the part of the line that is within the reactangle. later when we visit the right edge, we unpaint the edge. between edges and edges, no change will occur so we can just multiple the length on the line that is painted and the length between this edge and the next edge and add that to the answer.
+        </p>
+        <p>
+            we use the similar idea to keep track of length of the moving line that are painted, just in 1 dimension. at the start of an edge, i add one to it and at the end of the edge, i add -1 to it.(we do the opposite for a right edge) then, we loops though the points and thus get the length of the painted part of the vertical line.
+        </p>
+        <a href="planting.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

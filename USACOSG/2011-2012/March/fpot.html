@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+            A key observation here is that if a range doesn't work, then any subranges of it will not work either. Also, we are trying to find the range with the minimum length that works. Thus, we can use the double pointer technique. in two pointer, you keep track of the start and end of the current range. if your range works, then we can try to move the first pointer(start of your range) left to see if you can get a better solution. if the current range does not work, however, you will need to move the second pointer right because you know any interval inside this one will not work either.
+        </p>
+        
+        <p>
+            Now our problem is, how can we get the max and min value of elements in a specific interval quickly? to solve this problem, we can maintain a monotonic queue for each(max and min). below i am using the Max monotonic queue as an example. in a Max monotonic queue, our goal is to keep the non-increasing. thus, when we want to access range maximum, it is just the first element. when we add a new element to the queue, if the new element is greater than the some elements before, we remove those and then add the new element in. when we are moving the first pointer right, we just need to check if the first element is within the range and remove it in case it is not. that's why I  keep track of both the position and height of the element. we don't really care if there are some elements that is not the first element and not in the interval, since it will not affect out answer anyway.
+        </p>
+        <a href="fpot.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

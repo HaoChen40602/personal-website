@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           We can solve this problem using dynamic programming. First of all, a key observation is that since the umbrellas can overlap, a longer umbrella will always work better than a shorter one. thus, the cost of umbrella should be non-decreasing. if a shorter umbrella costs less than a longer one, we can change the cost of the shorter umbrella to the minimum of costs of every umbrella longer than it. 
+        </p>
+        <p>
+            let dp[i] denotes the minimum amount of money we need to spent to shelter every cow in the range from cow 0 to number i inclusive. for dp[i], we can try to add an umbrella covering cow i to cow k, k is less than i, and pick the one yielding the least cost. thus, dp[i] = min(dp[k] + costOfLength(posOf(i) - posOf(k + 1)).
+        </p>
+        <a href="umbrella.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

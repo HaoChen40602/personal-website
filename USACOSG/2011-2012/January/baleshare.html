@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           We can solve this problem using dynamic programming. let dp[A][B][C] store if we are able to reach the state in which we use up to the Ath bale, there are B amount in barn 1 and C amount in barn 2. Note that the problem states that the total amount is at most 2000, so on average, each barn should have less than 700. to be safe we can set the maximum to be 800. As we read in the inputs, we can add each bales into barn 1, barn 2 or barn 3 and mark that as reachable. note that we do not need to store the amount in the third barn because we can keep track of the total amount. However, even though the memory usage is still a bit to high, so we can apply memory compression to it. After that, iterate through all reachable states to find the best answer.
+        </p>
+        <a href="baleshare.txt" target="_blank">Here is the code</a>
+    </body>
+</html>
