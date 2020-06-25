@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           this problem can be solved with dynamic programming. in my code, dp[A][B][C] means how many ways there are from start to Ath letter(starting from 0, inclusive), H has B more left parenthesis than right parenthesis and G has C more left parenthesis than right parenthesis. 
+        </p>
+        <p>
+            if the str.charAt(A) is a left parenthesis, the current case can be derived from dp[A - 1][B - 1][C](when B > 0) and dp[A - 1][B][C - 1](when C > 0).
+        </p>
+        <p>
+            if the str.charAt(A) is a right parenthesis, the current case can be derived from dp[A - 1][B + 1][C](when B + 1 is less than upperbound) and dp[A - 1][B][C + 1](when C + 1 is less than upperbound).
+        </p>
+        <p>
+            then, we can do some memory opimization since we only need info stored in dp[A - 1]. another thing is, we don't actually need to store how many more left parenthesis than right parenthesis does type G have since when A and B is set, C is also determined.
+        </p>
+        <a href="bbreeds.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

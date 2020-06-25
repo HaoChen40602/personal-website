@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           This problem can be solved using shortest path algorithm. we can see the pastures as nodes of a graph and add edges between adjacent nodes. the weight of the edge depends of if the two pasture it connects is of the same type of grass.
+        </p>
+        <p>
+            then, we can run dijkstra's shortest path algorithm on every node and thus get the time required to travel between any pair of nodes. now we just print out the maximum. note that floyd warshall won't work her due to its O(n^3) time complexity. but dijkstra optimized with priority queue which has a time complexity of O(Elog(n)) for every node and O(NElog(n)) overall will work out fine.
+        </p>
+        <a href="distant.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

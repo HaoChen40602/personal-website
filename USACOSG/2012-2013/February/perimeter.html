@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+            if there are no holes inside, then we can simply run a BFS on the haybales to get the perimeter. but since there are holes in the middle, it is hard for us to determin if a hybale if touching outside region or merely a hole. 
+        </p>
+        <p>
+            we can use another approach to solve this problem. if we can't ran a BFS on haybales, why don't we run one on the outside regions? that solve the problem of not being able to distinguish between holes and outer regions. 
+        </p>
+        <p>
+            One thing here:<br>
+            ###*###<br>
+            ##***##<br>
+            #*****#<br>
+            *******<br>
+            #*****#<br>
+            ##***##<br>
+            ###*###<br>
+            we don't want the above rectangle because from (0, 0) you can only visit one fourth of the outer region. instead we want the one below:<br>
+            #########<br>
+            ####*####<br>
+            ###***###<br>
+            ##*****##<br>
+            #*******#<br>
+            ##*****##<br>
+            ###***###<br>
+            ####*####<br>
+            #########<br>
+        </p>
+        <a href="perimeter.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

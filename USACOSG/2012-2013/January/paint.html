@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           this problem can be solved with a sweep line approach. we can see each move as a line segment covering the line from point x to point y(x is smaller than y) and record point X with a value of 1 and point Y with a value of -1 as critical points, meaning the number of layers might change at this point.
+        </p>
+        <p>
+            so we keep track of Bessie's location, and add these critical points to a treemap. after that, we sweep over the line from left to right and keep track of the number of layers, when the the current number of layer is greater than or equal to K, we add the length of line between this point and the next point to out answer.
+        </p>
+        <a href="paint.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

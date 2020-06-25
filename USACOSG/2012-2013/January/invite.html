@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+            this problem is relatively easy. we open an arraylist of HashSets and create a hashset for each of the groups. then, we open a queue into which we add cows that we are going to invite. first, we add cow 1 to the queue. for every cow in the queue, we loop through all hashsets and remove it if it is present. if the length of a hashset becomes one after deleting the cow, we can delete the hashset and add that one cow into out queue. we repeate this process until the queue is empty.
+        </p>
+        <p>
+            one little here is that if you want to delete items from an arraylist, you will have to loop through it from the end to the start.
+        </p>
+        <a href="invite.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

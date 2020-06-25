@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           This problem is quite similar to the <a href="../../2011-2012/December/umbrella.html">umbrella</a> problem in 2011-2012 December contest. We can solve this problem using dynamic programming.
+        </p>
+        
+        <p>
+            In my code, dp[i] stands for the minimum cost we need to spend to cover every cow up to cow[i] inclusive. for dp[i], we can try to add a base station covering cow i to cow k, k is less than i, and pick the one yielding the least cost. thus, dp[i] = min(dp[k] + costOfLength(posOf(i) - posOf(k + 1)).
+        </p>
+        <a href="wifi.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

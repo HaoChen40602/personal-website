@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           there are several rules for a set of parenthesis to be valid. first, there must be an equal amount of left parenthesis and right parenthesis. secondly, when we loop through the string from the start, at any point in time, there can't be a negative level. what i mean by negative level, is that we encountered more right parenthesis. for example, ")(" is not valid. if the above two conditions are satisfied, the string is valid.
+        </p>
+        <p>
+            so, we can loop though the string and keep a "level" variable. when we encounter a left parenthesis, we add one to "level". when we encounter a right parenthesis, we minus one from "level". if "level" beomes negative after encountering a right parenthesis, we change it into a left parenthesis and add 2 to "level", since we delete a -1 and add an 1. after the loop is finished, we can just look at "level" and see how many more left parenthesis are there than right parenthesis. now all we have to do is add (level / 2) to out answer. this is because we can just change the first (level / 2) left parenthesis counting from right into right parenthesis.
+        </p>
+        <p>
+            also note that at the end level is always even because the length of the string is even.
+        </p>
+        <a href="clumsy.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

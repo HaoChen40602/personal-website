@@ -9,7 +9,7 @@
 #page{
     display: grid;
     grid-template-columns: 300px 1fr;
-    grid-template-rows: 60px minmax(900px, auto) 50px;
+    grid-template-rows: 60px minmax(500px, auto) 50px;
     justify-content: center;
     grid-template-areas: 
         "nav nav"
