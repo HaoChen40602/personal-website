@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+            we can solve this problem using recursion with memoization, or dynamic programming. Any given string can be formed in four ways. we recursively search for each of them, and sum them toather to get the ans for the current string. since for equal strings, they surely have the same answer, so we can store the value we got for a specific string in an hashmap, thus preventing us from calculating the same thing again and again.
+        </p>
+        <p>
+            Another thing is that when we finished the resursive function, the return value actually counted the original string as one of the ways to obtain the given string. thus to get the actual answer, we need to subtract one from that.
+        </p>
+        <a href="scode.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

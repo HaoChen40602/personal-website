@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           Assume that some how we can get the cow with the maximum height in an interval in O(1) time, then this problem becomes really easy. we just need to query the maximum in a cow's left and right interval, and see if they are more than twice the height of the cow.
+        </p>
+        <p>
+            this reminds us of monotonic queue. in a Max monotonic queue, our goal is to keep the queue non-increasing. thus, when we want to access range maximum, it is just the first element. when we add a new element to the queue, if the new element is greater than the some elements before, we remove those and then add the new element in. when we are moving the first pointer right, we just need to check if the first element is within the range and remove it in case it is not. that's why I  keep track of both the position and height of the element. we don't really care if there are some elements that is not the first element and not in the interval, since it will not affect out answer anyway.
+        </p>
+        <p>
+            using this approach, we can get if a boolean array representing if a cow has another cow at least twice the height of it on its left interval. then, we can reverse the array and turn every position into negative to make it work.
+        </p>
+        <a href="crowded.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

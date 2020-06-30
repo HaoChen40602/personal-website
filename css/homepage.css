@@ -2,6 +2,9 @@
 *{
     font-family: 'Open Sans';
 }
+body{
+    background-color: black;
+}
 #page{
     display: grid;
     grid-template-columns: 1fr;
@@ -13,8 +16,20 @@
         "footer";
     background-color: aqua;
     background-color: rgb(243, 239, 224);
+    animation-name: myAnim;
+    position: relative;
+    animation-duration: 5s;
 }
-
+@keyframes myAnim{
+    0% {
+        /*right: 1300px;*/
+        opacity: 0; 
+    }
+    100%{
+        /*right: 0px;*/
+        opacity: 1; 
+    }
+}
 #navBar{
     grid-area: nav;
     background-image: url('../photos/space.jpg');

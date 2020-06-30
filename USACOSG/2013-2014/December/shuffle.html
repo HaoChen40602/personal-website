@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           for this problem, first we need to find the shuffle for the entire card deck. what I mean by that is we want to change the shuffle of length M to a shuffle of length N so that we don't have to consider the range that we are gonna apply this shuffle to, which is pretty important for using repeated squaring.
+        </p>
+        <p>
+            for examle for the exmaple data, the shuffle for the entire deck is [1, 4, 0, 2, 3], meaning that the data originally at position 2 with be at position 4 after the shuffle.
+        </p>
+        <p>
+            then, we can use the technique of repeated squaring. imagine we now have an shuffling array representing the effect we will get after applying Bessie shuffle to the whole array N times, where we can make N any number, then the problem is basically done. although we can't choose N to be any number, we are able to easily such an shuffling array where N is 2 raised to some power. we know that because if we apply bessie shuffle twice we get the array representing 2 Bessie shuffles, which we denote as arr2. we can get arr4 in linear time by applying arr2 twice and so on. 
+        </p>
+        <p>
+            now, if we want to get the arrN, we can just write N in Binary representation and saw that as the sum of many (2^x). note that we want to apply the shuffle N - M + 1 times. However, after that, the deck we get is still not the answer yet. we need to move the top M - 1 card to the bottom. then after reversing the array, we get the final answer.
+        </p>
+        <a href="shuffle.txt" target="_blank">Here is the code</a>
+    </body>
+</html>

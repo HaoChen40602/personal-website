@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           this problem is quite ... interesting. first, we need to know how many numbers of adjs positions are there for each cow and the number of choices for each position. thus we will know the total number of type.
+        </p>
+        <p>
+            at this moment, we will be able to find the kth cow if farmer john have one cow for all possible tyes. now the only problem we have is to somehow take those types that FJ does not have into consideration.
+        </p>
+        <p>
+            also, we can get the number of types we don't have that is before a specific type. thus, the actaual ranking of a specific string is actually (k - num_before_on_fj_list(get_kth_cow(k, num))). therefore, we can try every type possible that is after the (Kth cow when farmer john have all types) and we know we get he right answer when (k - num_before_on_fj_list(get_kth_cow(k, num))) is equal to K.
+        </p>
+        <a href="nocow.txt" target="_blank">Here is the code</a>
+    </body>
+</html>
