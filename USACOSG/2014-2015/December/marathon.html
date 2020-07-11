@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+           This problem can be solved using dynamic programming. dp[i][j] means the minimum amount of distance we need to run when we are currently at checkpoint i and have j chances to skip a checkpoint left. 
+        </p>
+        <p>
+            at the state dp[i][j], we are able to move to this situation from dp[i - a][j - 1 + a] + dist(point i, point i - a), where a is between 1 and K.
+        </p>
+        <a href="marathon.txt" target="_blank">Here is the code</a>
+    </body>
+</html>
