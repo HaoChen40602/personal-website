@@ -15,7 +15,7 @@ body{
         "cont"
         "footer";
     background-color: aqua;
-    background-color: rgb(243, 239, 224);
+    background-color: blueviolet;
     animation-name: myAnim;
     position: relative;
     animation-duration: 5s;
@@ -36,7 +36,7 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat no-repeat;
     background-size: cover;
-    height: 700px;
+    height: 800px;
     padding-top: 15px;
 }
 #sss{
@@ -182,37 +182,43 @@ body{
 }
 #content{
     grid-area: cont;
-    background-color: rgb(243, 239, 224);
+    background-color: purple;
 }
 
-#postDiv{
+#ProjectDiv{
     margin-left: 40px;
     margin-right: 40px;
     display: grid;
-    grid-template-rows: 400px;
+    grid-template-rows: 400px 100px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 'first second third';
+    grid-template-areas: 'first second third'
+                         'text text text';
     grid-gap: 40px;
 }
 #first{
     grid-area: first;
+    width: 350px;
+    background-color: aqua;
     border-radius: 0.5em;
-    border-style: solid;
-    border-color: rgb(0, 123, 255);
 }
 
 #second{
     grid-area: second;
+    width: 350px;
+    background-color: aqua;
     border-radius: 0.5em;
-    border-style: solid;
-    border-color: rgb(0, 123, 255);
 }
 
 #third{
     grid-area: third;
+    width: 350px;
+    background-color: aqua;
     border-radius: 0.5em;
-    border-style: solid;
-    border-color: rgb(0, 123, 255);
+}
+#projecttext{
+    grid-area: text;
+    
+    text-align: center;
 }
 #title{
     text-align: center;
@@ -230,6 +236,20 @@ body{
     text-decoration: underline;
 }
 
+.PostDiv{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.post{
+    border-style: solid;
+    border-color: darkslategrey;
+    width: 250px;
+    height: 300px;
+}
 #footer{
     grid-area: footer;
     background-color: lightskyblue;

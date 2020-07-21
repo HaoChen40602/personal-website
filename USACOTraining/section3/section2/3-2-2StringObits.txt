@@ -1,0 +1,51 @@
+
+/*
+ID: haochen6
+LANG: JAVA
+PROG: kimbits
+*/
+
+import java.io.*;
+import java.util.*;
+
+public class kimbits {
+    public static void main(String[] args) throws Exception {
+        long startTime = System.currentTimeMillis();
+
+        BufferedReader br = new BufferedReader(new FileReader("kimbits.in"));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("kimbits.out")));
+ 
+        String[] l = (br.readLine()).split("\\s");
+        int N = Integer.parseInt(l[0]);
+        int L = Integer.parseInt(l[1]);
+        long I = Long.parseLong(l[2]);  
+        long num = 0;
+        long i;
+        for (i = 0; i <= 1L<<N; i++) { 
+            int c = 0; 
+            long t = i;
+            if (Long.bitCount(i)>L) {
+                for(c=0; (t&1)==0 && t!=0; c++)
+                    t>>=1;
+                i+=(1<<c)-1;
+                continue;
+            }
+            if (++num == I)
+                break;
+            for (t=i, c=0; (t&1)==1; c++) 
+                t>>=1;
+            if (I-num+1>1L<<c) {
+                i+=(1L<<c)-1;
+                num+=(1L<<c)-1;
+            }
+        }
+        String result = Long.toBinaryString(i);
+        while (result.length()<N) {
+            result="0"+result;
+        }
+        out.println(result);
+        br.close();
+        out.close();
+        System.out.println(System.currentTimeMillis() - startTime);
+    }
+}

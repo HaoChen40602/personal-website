@@ -1,0 +1,42 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: inflate
+*/
+import java.io.*;
+import java.util.*;
+import java.lang.Math;
+class inflate{
+  public static void main (String [] args) throws IOException {
+    BufferedReader f = new BufferedReader(new FileReader("inflate.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("inflate.out")));
+    StringTokenizer s = new StringTokenizer(f.readLine());
+    int C = Integer.parseInt(s.nextToken());
+    int N = Integer.parseInt(s.nextToken());
+    Object[] things = new Object[N + 1];
+    for(int i = 1; i < N + 1; i++){
+        s = new StringTokenizer(f.readLine());
+        int vv = Integer.parseInt(s.nextToken());
+        int ss = Integer.parseInt(s.nextToken());
+        things[i] = new Object(vv, ss);
+    }
+    int[] dp = new int[C + 1];
+    for (int i = 1; i <= N; i++){
+        for (int j = things[i].weight; j <= C; j++){
+            dp[j] = Math.max(dp[j], dp[j - things[i].weight] + things[i].value);
+        }
+    }
+    out.println(dp[C]);
+    out.close();
+    
+  }
+  
+}
+class Object{
+    int value;
+    int weight;
+    public Object(int v, int w){
+        value = v;
+        weight = w;
+    }
+}

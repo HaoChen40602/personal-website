@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body>
+        <p>
+            There are two ways of doing this problem. I did it in DP. 
+        </p>
+        <p>
+            you need to assign a new ID for each product, since there are at most 5 products, we can just open a 5D array. dp[A][B][C][D][E] means the minimum money we have to spend to buy A number of item 1, B number of item 2, C number of item 3, D number of item 4, E number of item 5.
+        </p>
+        <p>
+            when you think about it, you can realize that the current situation can be derived from (num_offer solution + 1) situations: you either buy it one by one, or you use a offer and spend offer.cost + dp[a][b][c][d][e], the situation after using the offer. get the minimum of all that. the DP formula is
+            
+        </p>
+        <p>
+            sol[a][b][c][d][e]= min (a*price[1] + b*price[2] + c * price[3] + d * price[4] + e * price[5],
+            so[k].price + sol[a-so[k].prod[1].items] [b - so[k].prod[2].items] [c-so[k].prod[3].items] [d-so[k].prod[4].items] [e-so[k].prod[5].items]);
+        </p>
+        <a href="3-3-2 shopping.txt" target="_blank">Here is the code in Java</a>
+        
+        
+    </body>
+</html>

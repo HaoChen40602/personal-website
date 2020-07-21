@@ -1,0 +1,62 @@
+/*
+ID: haochen6
+LANG: JAVA
+PROG: stamps
+*/
+
+import java.io.*;
+import java.util.*;
+public class stamps {
+    public static void main(String[] args) throws Exception {
+        long startTime = System.currentTimeMillis();
+
+        BufferedReader br = new BufferedReader(new FileReader("stamps.in"));
+
+        StringTokenizer l = new StringTokenizer(br.readLine());
+        
+        int K = Integer.parseInt(l.nextToken()); 
+        int N = Integer.parseInt(l.nextToken());
+
+        int[] coins = new int[N];
+        String line;
+        int counter = 0;
+        while ((line = br.readLine())!=null) {
+            l = new StringTokenizer(line);
+            while(l.hasMoreTokens()) {
+                coins[counter]=Integer.parseInt(l.nextToken());
+                counter++;
+            }
+        }
+
+        br.close();
+        Arrays.sort(coins);
+        int[] minimums = new int[K*coins[N-1]+1];
+        Arrays.fill(minimums, Integer.MAX_VALUE);
+        minimums[0]=0;
+        boolean finished = false;
+        while(!finished) {
+            finished=true;
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j+coins[i] < minimums.length; j++) {
+                    int newer = minimums[j]+1;
+                    int old = minimums[j+coins[i]];
+                    if (newer < old) {
+                        finished=false;
+                        minimums[j+coins[i]]=newer;
+                    }
+                }
+            }
+        }
+        int i = 0;
+        for (; i < minimums.length; i++) {
+            if (minimums[i]>K) {
+                break;
+            }
+        }
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("stamps.out")));
+
+        out.println(i-1);
+        
+        out.close();
+    }
+}

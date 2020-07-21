@@ -1,0 +1,50 @@
+/*
+ID: haochen6
+LANG: JAVA
+TASK: game1
+*/
+import java.io.*;
+import java.util.*;
+import java.lang.Math;
+class game1 {
+    static int[][] dp;
+    static int[] board;
+  public static void main (String [] args) throws IOException {
+    Scanner f = new Scanner(new File("game1.in"));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("game1.out")));
+    int N = f.nextInt();
+    board = new int[N + 1];
+    int sum = 0;
+    for(int i = 0; i < N; i++){
+        board[i] = f.nextInt();
+        sum += board[i];
+    }
+    dp = new int[N + 1][N + 1];
+    for(int i = 0; i < N + 1; i++){
+        for(int j = 0; j < N + 1; j++){
+            dp[i][j] = -1;
+        }
+    }
+    int a = calculate(0, N - 1);
+    
+    out.println(a + " " + (sum - a));
+    out.close();
+  }
+  public static int calculate(int start, int end){
+      if(start > end){
+          return 0;
+      }
+      if(start == end){
+          dp[start][end] = board[start];
+          return dp[start][end];
+      }
+      
+      if(dp[start][end] != -1){
+          return dp[start][end];
+      }
+      
+      dp[start][end] = Math.max(Math.min(calculate(start + 2, end),calculate(start + 1,end - 1)) + board[start], 
+                       Math.min(calculate(start + 1,end - 1),calculate(start, end - 2)) + board[end]);
+      return dp[start][end];
+  } 
+}

@@ -205,6 +205,11 @@
   font-size: 1.1em;
 }
 
+.project{
+    width: 400px;
+    height: 250px;
+}
+
 #footer{
     grid-area: footer;
     background-color: lightskyblue;
