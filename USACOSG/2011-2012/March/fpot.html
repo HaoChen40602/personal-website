@@ -12,6 +12,6 @@
         <p>
             Now our problem is, how can we get the max and min value of elements in a specific interval quickly? to solve this problem, we can maintain a monotonic queue for each(max and min). below i am using the Max monotonic queue as an example. in a Max monotonic queue, our goal is to keep the non-increasing. thus, when we want to access range maximum, it is just the first element. when we add a new element to the queue, if the new element is greater than the some elements before, we remove those and then add the new element in. when we are moving the first pointer right, we just need to check if the first element is within the range and remove it in case it is not. that's why I  keep track of both the position and height of the element. we don't really care if there are some elements that is not the first element and not in the interval, since it will not affect out answer anyway.
         </p>
-        <a href="fpot.txt" target="_blank">Here is the code</a>
+        <a href="fpot.java" target="_blank">Here is the code</a>
     </body>
 </html>
