@@ -6,7 +6,7 @@
     </head>
     <body> 
         <p>
-            First, let's think about how we can solve this problem if it is linear instead of circular. 
+            First, let's think about how we can solve this problem if it is linear instead of circular. in a linear situation, we must put a dor in the first room because otherwise it is impossible for cows to enter that room. Then, we can do a dp on that. since we used one already, we now need to put k - 1 doors in the rest of the rooms. let dp[i][k] be the minimum cost when using k doors(excluding the first door) and only considering rooms from 0 to i. dp[i][k] = min(dp[j][k - 1] + costOfInterval(j + 1, i)), j is less than i. 
         </p>
         <a href="cbarn2.java" target="_blank">Here is the code</a>
     </body>
