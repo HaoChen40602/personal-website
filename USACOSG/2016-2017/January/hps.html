@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+            This problem can be solve using dp. note that the things that matters are how many games have you played, your current gesture and how many switches are left. therefore, we let dp[i][j][k] be the maximum score after the ith(starting from 0) game, used j switches with the current gesture of k. Then, dp[i][j][k] = max(dp[i - 1][j][k], dp[i - 1][j - 1][0/1/2]) + k wins? 1 : 0;
+        </p>
+        <a href="hps.java" target="_blank">Here is the code</a>
+    </body>
+</html>
+ s

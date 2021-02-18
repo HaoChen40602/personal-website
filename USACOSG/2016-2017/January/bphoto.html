@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hao Chen's website</title>
+    </head>
+    <body> 
+        <p>
+            We can solve this problem by calculating the number of cows that are taller than cow[i] left and right to her. We can do this separately and the process is really similar. I will only talk about right here. let's create a class cow that has two properties: original index and height. Then we sort the array of cows according to height from in decreasing order. suppose we keep an array and if arr[i] is 1, it means that we have already encoutered a cows with this index before, meaning that it is taller than the current cow we are checking for. then, the number of cows that are taller than the current cow and is to her right is the sum of the interval from (0(inclusive) - current.index(exclusive)) of values in arr. We can then use an binary indexded tree get the sum in log(n) time. 
+        </p>
+        <a href="bphoto.java" target="_blank">Here is the code</a>
+    </body>
+</html>
+ 

@@ -259,4 +259,14 @@ body{
 #fttext{
     text-align: center;
 }
-
+#lllink:link{
+    text-decoration: none;
+    color: black;
+}
+#lllink:visited{
+    text-decoration: none;
+    color: black;
+}
+#lllink:hover{
+    text-decoration: underline;
+}
